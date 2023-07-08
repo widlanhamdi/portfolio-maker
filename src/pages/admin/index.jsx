@@ -3,7 +3,6 @@ import Banner from "../../components/Banner";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import List from "./components/List";
 import Dashboard from "../../components/Dashboard";
-import ListMahasiswa from "./components/ListMahasiswa";
 
 export default function ListPortfolio() {
   // Input Search Bar
@@ -31,8 +30,6 @@ export default function ListPortfolio() {
       </Row>
 
       <List input={inputText} />
-
-      <ListMahasiswa />
     </Container>
   );
 }

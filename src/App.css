@@ -1,0 +1,115 @@
+.btn-primary {
+  --bs-btn-bg: #094b72 !important;
+  --bs-btn-border-color: #094b72 !important;
+  --bs-btn-hover-bg: #073f5f !important;
+  --bs-btn-hover-border-color: #074c74 !important;
+  --bs-btn-active-bg: #074c74 !important;
+  --bs-btn-active-border-color: #084a70 !important;
+  --bs-btn-disabled-bg: #094b72 !important;
+  --bs-btn-disabled-border-color: #094b72 !important;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: #094b72 !important;
+  --bs-btn-border-color: #094b72 !important;
+  --bs-btn-hover-bg: #094b72 !important;
+  --bs-btn-hover-border-color: #094b72 !important;
+  --bs-btn-active-bg: #094b72 !important;
+  --bs-btn-active-border-color: #094b72 !important;
+  --bs-btn-disabled-color: #094b72 !important;
+  --bs-btn-disabled-border-color: #094b72 !important;
+}
+
+.bg > [type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.bg > [type="radio"] + img {
+  cursor: pointer;
+}
+
+.bg > [type="radio"]:checked + img {
+  outline: 2px solid #094b72;
+}
+
+.text-link > a {
+  color: #094b72 !important;
+}
+
+.text-link > a:hover {
+  color: #ffffff !important;
+}
+
+.icon-delete {
+  color: #094b72;
+}
+
+.icon-delete:hover {
+  color: #073f5f;
+}
+
+.hero__bg {
+  background-image: url("./assets/bg-hero.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero__spacing {
+  padding-top: 100px;
+}
+
+.banner__spacing {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.stupo__round-pict {
+  margin-top: -35px;
+  z-index: 1;
+}
+
+.stripe {
+  display: flex;
+  flex-direction: row;
+}
+.stripe:before,
+.stripe:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid;
+  margin: auto;
+}
+.stripe:before {
+  margin-right: 10px;
+}
+.stripe:after {
+  margin-left: 10px;
+}
+
+.stripe2 {
+  display: flex;
+  flex-direction: row;
+}
+.stripe2:before {
+  content: "";
+  flex: 1 1;
+  border-bottom: 1px solid;
+  margin: auto;
+}
+
+.stripe2:after {
+  content: "";
+  flex: 3 3;
+  margin: auto;
+}
+.stripe2:before {
+  margin-right: 10px;
+}
+
+.editporto__round-pict {
+  margin-top: -35px;
+  z-index: 1;
+}

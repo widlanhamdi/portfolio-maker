@@ -22,16 +22,22 @@ export default function TopBar() {
   return (
     <Navbar expand="lg">
       <Container className="px-5">
-        <Navbar.Brand as={Link} to="/admin/list-portfolio">
+        <Navbar.Brand as={Link} to="/admin">
           <img src={Logo} alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse>
-          <Nav className="ms-auto gap-3">
-            <Button variant="danger" onClick={logout}>
-              <BiLogOut /> Logout
-            </Button>
+          <Nav className="mx-auto gap-3">
+            <Nav.Link as={Link} to="/admin">
+              Dashboard
+            </Nav.Link>
+            <Nav.Link as={Link} to="/admin/register-students">
+              Register
+            </Nav.Link>
           </Nav>
+          <Button variant="danger" onClick={logout}>
+            <BiLogOut /> Logout
+          </Button>
         </Navbar.Collapse>
       </Container>
     </Navbar>

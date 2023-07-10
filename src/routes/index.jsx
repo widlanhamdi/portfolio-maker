@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // admin
+import LayoutRegister from "../pages/admin/layouts/LayoutRegister";
 import ListPortfolioAdmin from "../pages/admin";
 import LoginAdmin from "../pages/admin/authentication/LoginAdmin";
 import PrivateAdmin from "./admin/PrivateAdmin";
@@ -35,6 +36,7 @@ export default function SetupRouter() {
 
         <Route path="/admin" element={<PrivateAdmin />}>
           <Route index element={<ListPortfolioAdmin />} />
+          <Route path="register-students" element={<LayoutRegister />} />
         </Route>
 
         <Route path="/portofolio/:id" element={<Portofolio />} />

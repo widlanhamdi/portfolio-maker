@@ -9,6 +9,7 @@ const AuthCDC = {
     return Cookies.get("token") && Cookies.get("role") === "cdc";
   },
   signOut(navigate) {
+    Cookies.remove("access_token");
     Cookies.remove("token");
     Cookies.remove("uid");
     Cookies.remove("role");
@@ -18,6 +19,7 @@ const AuthCDC = {
   },
   storeCDCInfoToCookie(user, data) {
     if (!user.accessToken) return null;
+    Cookies.remove("access_token");
     Cookies.remove("token");
     Cookies.remove("uid");
     Cookies.remove("role");

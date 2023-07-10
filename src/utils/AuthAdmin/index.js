@@ -9,6 +9,7 @@ const AuthAdmin = {
     return Cookies.get("token") && Cookies.get("role") === "admin";
   },
   signOut(navigate) {
+    Cookies.remove("access_token");
     Cookies.remove("token");
     Cookies.remove("uid");
     Cookies.remove("role");
@@ -18,6 +19,7 @@ const AuthAdmin = {
   },
   storeAdminInfoToCookie(user, data) {
     if (!user.accessToken) return null;
+    Cookies.remove("access_token");
     Cookies.remove("token");
     Cookies.remove("uid");
     Cookies.remove("role");

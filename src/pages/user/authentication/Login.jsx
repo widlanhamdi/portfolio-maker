@@ -4,6 +4,7 @@ import Ilustration from "../../../assets/ilustration-login.png";
 import Logo from "../../../assets/logo.png";
 import useSignIn from "../../../hooks/authentication/useSignIn";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -19,7 +20,7 @@ export default function Login() {
 
   return (
     <Container>
-      <Row className="d-flex justify-content-center align-items-center" style={{ marginTop: "20px" }}>
+      <Row className="d-flex justify-content-center align-items-center" style={{ marginTop: "30px" }}>
         <Col lg={5} className="ps-5">
           <h3 style={{ color: "#094b72" }}>Login</h3>
           <p style={{ color: "#094b72" }}>Let’s Create your professional portfolio easily and quickly</p>
@@ -30,7 +31,7 @@ export default function Login() {
         <Col lg={5} className="ps-5">
           <img
             src={Ilustration}
-            alt=""
+            alt="ilustration"
             className="rounded d-md-none d-sm-none d-none d-lg-block"
             style={{ width: "350px" }}
           />
@@ -38,7 +39,9 @@ export default function Login() {
         <Col lg={5} className="text-start">
           <Form onSubmit={handleSignIn}>
             <div className="mb-4">
-              <img src={Logo} alt="" />
+              <Link to="/">
+                <img src={Logo} alt="logo cdc" />
+              </Link>
               <h4 className="mt-4" style={{ color: "#094b72" }}>
                 Login
               </h4>
@@ -55,7 +58,12 @@ export default function Login() {
             </Form.Group>
 
             <Form.Group className="mb-4">
-              <Form.Label style={{ color: "#094B72" }}>Password</Form.Label>
+              <div className="d-flex justify-content-between">
+                <Form.Label style={{ color: "#094B72" }}>Password</Form.Label>
+                <Form.Label style={{ color: "#094B72", fontSize: "14px" }} as={Link} to="/reset-password">
+                  Forgot Password?
+                </Form.Label>
+              </div>
               <Form.Control
                 type="password"
                 className="p-3"

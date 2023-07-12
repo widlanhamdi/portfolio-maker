@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BiEdit } from "react-icons/bi";
+import { BiEdit, BiLockOpenAlt } from "react-icons/bi";
 import { BsDownload, BsFiles, BsUpload } from "react-icons/bs";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,18 +9,19 @@ import jsPDF from "jspdf";
 import Swal from "sweetalert2";
 import ViewPortofolio from "../../components/ViewPortofolio";
 import useFetchDataById from "../../hooks/query/useFetchDataById";
+import ModalChangePassword from "../../components/ModalChangePassword";
 
 export default function Profile() {
   const navigate = useNavigate();
   const uid = Cookies.get("uid");
 
+  // get data
   const portfolio = useFetchDataById("portfolios", uid);
   const { data, isLoading } = portfolio;
 
   const [isLoadingEksport, setIsLoadingEksport] = useState(false);
 
-  // Get Data Portfolio
-
+  // export
   const eksportPDF = () => {
     try {
       setIsLoadingEksport(true);
@@ -45,12 +46,14 @@ export default function Profile() {
     }
   };
 
+  // toast
   const Toast = Swal.mixin({
     toast: true,
     position: "bottom-start",
     showConfirmButton: false,
   });
 
+  // copy clip to clip board
   const copyToClipboard = () => {
     try {
       navigator.clipboard.writeText(`https://cdc-portfolio-maker.netlify.app/portofolio/${uid}`);
@@ -67,6 +70,9 @@ export default function Profile() {
       });
     }
   };
+
+  // Modal
+  const [show, setShow] = useState(false);
 
   return (
     <>
@@ -93,13 +99,19 @@ export default function Profile() {
               <BiEdit size={20} className="me-2" />
               Edit Portfolio
             </Button>
+
             <Button
-              variant="outline-primary py-2 w-100"
+              variant="outline-primary mb-3 py-2 w-100"
               onClick={() => copyToClipboard()}
               disabled={data === undefined}
             >
               <BsFiles size={20} className="me-2" />
               Copy Link Portfolio
+            </Button>
+
+            <Button variant="outline-primary py-2 w-100" onClick={() => setShow(true)}>
+              <BiLockOpenAlt size={20} className="me-2" />
+              Change Password
             </Button>
           </Col>
           <Col lg={9}>
@@ -152,6 +164,8 @@ export default function Profile() {
           </Col>
         </Row>
       </Container>
+      <ModalChangePassword show={show} setShow={setShow} />
+
       <hr />
       <p className="text-center text-black-50">© 2023 Career Development Center ITG</p>
     </>

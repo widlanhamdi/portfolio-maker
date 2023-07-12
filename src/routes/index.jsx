@@ -26,6 +26,7 @@ import Login from "../pages/user/authentication/Login";
 import Profile from "../pages/user/Profile";
 import PrivateUser from "./user/PrivateUser";
 import ProtectedUser from "./user/ProtectedUser";
+import ResetPassword from "../pages/user/authentication/ResetPassword";
 
 export default function SetupRouter() {
   return (
@@ -66,6 +67,7 @@ export default function SetupRouter() {
         <Route path="/" element={<ProtectedUser />}>
           <Route index element={<LandingPage />} />
           <Route path="login" element={<Login />} />
+          <Route path="reset-password" element={<ResetPassword />} />
         </Route>
 
         <Route path="/" element={<PrivateUser />}>

@@ -5,6 +5,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "../../../config/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import Swal from "sweetalert2";
+import useFetchAllData from "../../../hooks/query/useFetchAllData";
 
 export default function ListStudents() {
   const [dataMahasiswa, setDataMahasiswa] = useState([]);
@@ -13,6 +14,11 @@ export default function ListStudents() {
   const [tahun, setTahun] = useState(0);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+
+  const users = useFetchAllData("/users");
+  const { data } = users;
+
+  const match = (name) => data?.map((item) => item.name).filter((e) => name.indexOf(e) !== -1);
 
   useEffect(() => {
     const headers = { Authorization: `Bearer ${AuthAisnet.getAccessToken()}` };
@@ -47,7 +53,7 @@ export default function ListStudents() {
             addDoc(collection(db, "users"), {
               uid: user.uid,
               name: data?.data[i]?.nama,
-              email: `${data?.data[i]?.nim}@gmail.com`,
+              email: `${data?.data[i]?.nim}@itg.ac.id`,
               role: "user",
             });
           }
@@ -114,12 +120,17 @@ export default function ListStudents() {
             {/* body */}
             <div className="px-4">
               {dataMahasiswa?.data?.data?.map((item, idx) => (
-                <div className="d-block" key={idx}>
-                  <p className="m-0 fw-bold">{item.nama}</p>
-                  <p className="m-0 text-black-50">{item.nim}</p>
-                  <p className="m-0">{item.program_studi}</p>
+                <>
+                  <div className="d-flex justify-content-between" key={idx}>
+                    <div>
+                      <p className="m-0 fw-bold">{item.nama}</p>
+                      <p className="m-0 text-black-50">{item.nim}</p>
+                      <p className="m-0">{item.program_studi}</p>
+                    </div>
+                    <div>{match(item.nama).length === 0 ? "" : <p className="text-black-50">(Registered)</p>}</div>
+                  </div>
                   <hr />
-                </div>
+                </>
               ))}
             </div>
             <hr style={{ height: "5px", border: "none", background: "#000000" }} />

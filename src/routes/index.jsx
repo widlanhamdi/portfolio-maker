@@ -23,7 +23,6 @@ import CreatePortofolio from "../pages/user/CreatePortfolio";
 import EditPortfolio from "../pages/user/EditPortfolio";
 import LandingPage from "../pages/user/LandingPage";
 import Login from "../pages/user/authentication/Login";
-import Portofolio from "../pages/user/Portofolio";
 import Profile from "../pages/user/Profile";
 import PrivateUser from "./user/PrivateUser";
 import ProtectedUser from "./user/ProtectedUser";
@@ -41,8 +40,6 @@ export default function SetupRouter() {
         <Route path="/admin" element={<PrivateAdmin />}>
           <Route index element={<ListPortfolioAdmin />} />
         </Route>
-
-        <Route path="/portofolio/:id" element={<Portofolio />} />
 
         {/* Aisnet */}
 

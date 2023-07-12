@@ -47,7 +47,7 @@ export default function ListStudents() {
 
     try {
       for (let i = 0; i < data?.data?.length; i++) {
-        await createUserWithEmailAndPassword(auth, `${data?.data[i]?.nim}@gmail.com`, data?.data[i]?.nim).then(
+        await createUserWithEmailAndPassword(auth, `${data?.data[i]?.nim}@itg.ac.id`, data?.data[i]?.nim).then(
           (userCredential) => {
             const user = userCredential.user;
             addDoc(collection(db, "users"), {

@@ -8,9 +8,6 @@ const AuthAisnet = {
   getAccessToken() {
     return Cookies.get("access_token");
   },
-  signOut() {
-    Cookies.remove("access_token");
-  },
   storeUserInfoToCookie(data) {
     if (!data.access_token) return null;
     const { access_token } = data;

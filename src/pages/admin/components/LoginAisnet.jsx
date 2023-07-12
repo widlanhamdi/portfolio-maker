@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import AuthAisnet from "../../../utils/AuthAisnet";
 import Swal from "sweetalert2";
 import { Button, Container, Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginAisnet() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSignIn = (e) => {
     e.preventDefault();
@@ -27,6 +29,7 @@ export default function LoginAisnet() {
           showConfirmButton: false,
           timer: 1500,
         });
+        navigate("/admin/list-students");
       })
       .catch((err) => {
         console.log(err);
@@ -40,7 +43,7 @@ export default function LoginAisnet() {
         <Form className="p-5" onSubmit={handleSignIn}>
           <h3 style={{ color: "#094b72" }}>Login For Access Data Students</h3>
           <Form.Group className="mt-5 mb-3">
-            <Form.Label style={{ color: "#094B72" }}>Email</Form.Label>
+            <Form.Label style={{ color: "#094B72" }}>Username</Form.Label>
             <Form.Control
               type="username"
               className="p-3"

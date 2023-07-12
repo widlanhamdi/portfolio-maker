@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import AuthAisnet from "../../../utils/AuthAisnet";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../../config/firebase";
+import { addDoc, collection } from "firebase/firestore";
+import Swal from "sweetalert2";
 
-export default function ListMahasiswa() {
+export default function ListStudents() {
   const [dataMahasiswa, setDataMahasiswa] = useState([]);
   const [dataProdi, setDataProdi] = useState([]);
   const [prodi, setProdi] = useState("");
   const [tahun, setTahun] = useState(0);
   const [page, setPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const headers = { Authorization: `Bearer ${AuthAisnet.getAccessToken()}` };
@@ -20,8 +25,51 @@ export default function ListMahasiswa() {
       .then((data) => setDataMahasiswa(data));
   }, [page, prodi, tahun]);
 
-  const onProdi = (e) => setProdi(e.target.value);
-  const onTahun = (e) => setTahun(e.target.value);
+  const onProdi = (e) => {
+    setProdi(e.target.value);
+    setPage(1);
+  };
+  const onTahun = (e) => {
+    setTahun(e.target.value);
+    setPage(1);
+  };
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    const { data } = dataMahasiswa;
+    setIsLoading(true);
+
+    try {
+      for (let i = 0; i < data?.data?.length; i++) {
+        await createUserWithEmailAndPassword(auth, `${data?.data[i]?.nim}@gmail.com`, data?.data[i]?.nim).then(
+          (userCredential) => {
+            const user = userCredential.user;
+            addDoc(collection(db, "users"), {
+              uid: user.uid,
+              name: data?.data[i]?.nama,
+              email: `${data?.data[i]?.nim}@gmail.com`,
+              role: "user",
+            });
+          }
+        );
+      }
+      setIsLoading(false);
+      Swal.fire({
+        text: "Success!",
+        title: "Register Successfully",
+        icon: "success",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (err) {
+      console.error(err);
+      setIsLoading(false);
+      if (err.code === "auth/email-already-in-use") {
+        return Swal.fire("Something Error!", "Email already in use", "error");
+      }
+      Swal.fire("Something Error!", "Please try again later", "error");
+    }
+  };
 
   return (
     <Container>
@@ -48,7 +96,7 @@ export default function ListMahasiswa() {
         </Col>
       </Row>
 
-      {/* table */}
+      {/* list students */}
       {dataMahasiswa?.data?.total ? (
         <>
           <div className="mx-auto bg-body border rounded w-75 mb-5">
@@ -57,7 +105,9 @@ export default function ListMahasiswa() {
               <h4>
                 List Students | <small style={{ fontSize: 15 }}>total {dataMahasiswa?.data?.total}</small>
               </h4>
-              <Button>Register Students Page {page}</Button>
+              <Button onClick={handleRegister} disabled={isLoading}>
+                {isLoading ? "Registering..." : `Register Students On Page ${page}`}
+              </Button>
             </div>
             <hr style={{ height: "5px", border: "none", background: "#000000" }} />
 

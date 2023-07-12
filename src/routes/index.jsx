@@ -1,11 +1,16 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // admin
-import LayoutRegister from "../pages/admin/layouts/LayoutRegister";
 import ListPortfolioAdmin from "../pages/admin";
 import LoginAdmin from "../pages/admin/authentication/LoginAdmin";
 import PrivateAdmin from "./admin/PrivateAdmin";
 import ProtectedAdmin from "./admin/ProtectedAdmin";
+
+// Aisnet
+import ListStudents from "../pages/admin/components/ListStudents";
+import LoginAisnet from "../pages/admin/components/LoginAisnet";
+import PrivateAisnet from "./aisnet/PrivateAisnet";
+import ProtectedAisnet from "./aisnet/ProtectedAisnet";
 
 // cdc
 import ListPortfolioCDC from "../pages/cdc";
@@ -22,7 +27,6 @@ import Portofolio from "../pages/user/Portofolio";
 import Profile from "../pages/user/Profile";
 import PrivateUser from "./user/PrivateUser";
 import ProtectedUser from "./user/ProtectedUser";
-import Register from "../pages/user/authentication/Register";
 
 export default function SetupRouter() {
   return (
@@ -36,10 +40,19 @@ export default function SetupRouter() {
 
         <Route path="/admin" element={<PrivateAdmin />}>
           <Route index element={<ListPortfolioAdmin />} />
-          <Route path="register-students" element={<LayoutRegister />} />
         </Route>
 
         <Route path="/portofolio/:id" element={<Portofolio />} />
+
+        {/* Aisnet */}
+
+        <Route path="/admin" element={<ProtectedAisnet />}>
+          <Route path="login-students" element={<LoginAisnet />} />
+        </Route>
+
+        <Route path="/admin" element={<PrivateAisnet />}>
+          <Route path="list-students" element={<ListStudents />} />
+        </Route>
 
         {/* CDC */}
 
@@ -55,7 +68,6 @@ export default function SetupRouter() {
 
         <Route path="/" element={<ProtectedUser />}>
           <Route index element={<LandingPage />} />
-          <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
         </Route>
 

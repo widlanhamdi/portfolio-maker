@@ -5,19 +5,22 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 import { BsFillFileEarmarkFill, BsFillXCircleFill } from "react-icons/bs";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { bytesConverter } from "../../../utils/bytesConverter";
+import Cookies from "js-cookie";
 
 const defaultBg =
   "https://firebasestorage.googleapis.com/v0/b/portfolio-maker-60b46.appspot.com/o/backgrounds%2Fbg-1.png?alt=media&token=3a5c228c-2110-48ac-a204-85f94c967d85";
+const defaultName = Cookies.get("name");
+const defaultEmail = Cookies.get("email");
 
 export default function FormProfile() {
   // State Form
   const [selectedBg, setSelectedBg] = useState(defaultBg);
   const [selectedPhoto, setSelectedPhoto] = useState();
   const [previewPhoto, setPreviewPhoto] = useState();
-  const [name, setName] = useState("");
+  const [name, setName] = useState(defaultName);
   const [skill, setSkill] = useState("");
   const [aboutMe, setAboutMe] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState(defaultEmail);
   const [phone, setPhone] = useState(0);
   const [socMed, setSocMed] = useState("");
 

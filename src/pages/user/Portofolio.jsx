@@ -83,24 +83,6 @@ export default function Portofolio() {
               </Col>
             </Row>
 
-            {isEmpty(achievments) ? null : (
-              <>
-                <hr />
-
-                <h4 className="mb-4">Achievment</h4>
-
-                {achievments?.map((item, index) => (
-                  <div key={index} className="mb-4">
-                    <div className="d-flex justify-content-between">
-                      <p>{item.name}</p>
-                      <p>{item.year}</p>
-                    </div>
-                    <img src={item.file.url} alt="" width="100%" style={{ objectFit: "cover" }} />
-                  </div>
-                ))}
-              </>
-            )}
-
             {isEmpty(work) ? null : (
               <>
                 <hr />
@@ -166,6 +148,24 @@ export default function Portofolio() {
               </>
             )}
 
+            {isEmpty(achievments) ? null : (
+              <>
+                <hr />
+
+                <h4 className="mb-4">Achievment</h4>
+
+                {achievments?.map((item, index) => (
+                  <div key={index} className="mb-4">
+                    <img src={item.file.url} alt="" width="100%" style={{ objectFit: "cover" }} />
+                    <div className="d-flex justify-content-between mt-3">
+                      <p>{item.name}</p>
+                      <p>{item.year}</p>
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
+
             {isEmpty(projects) ? null : (
               <>
                 <hr />
@@ -176,7 +176,7 @@ export default function Portofolio() {
                   <div key={index} className="mb-4">
                     <img src={item.file.url} alt="" width="100%" style={{ objectFit: "cover" }} />
 
-                    <div className="d-flex justify-content-between">
+                    <div className="d-flex justify-content-between mt-3">
                       <p>{item.name}</p>
                       <p>{item.year}</p>
                     </div>

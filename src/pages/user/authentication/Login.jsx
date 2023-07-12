@@ -4,7 +4,6 @@ import Ilustration from "../../../assets/ilustration-login.png";
 import Logo from "../../../assets/logo.png";
 import useSignIn from "../../../hooks/authentication/useSignIn";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -70,13 +69,6 @@ export default function Login() {
             <Button variant="primary w-100 p-3 text-white mb-3" type="submit" disabled={isLoading}>
               {isLoading ? "Loading..." : "Login"}
             </Button>
-
-            <p>
-              Don't have account?{" "}
-              <Link to="/register" className="text-primary text-decoration-underline">
-                Register
-              </Link>
-            </p>
           </Form>
         </Col>
       </Row>

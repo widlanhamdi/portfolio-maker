@@ -9,20 +9,20 @@ export default function Footer() {
       <Container className="my-5">
         <Row>
           <Col lg={5}>
-            <p>ABOUT US</p>
+            <p className="fw-bold">ABOUT US</p>
             <p>
               Welcome to the Career Development Center. We help you prepare for the career of your dreams. We assist you
               in building an attractive and professional online portfolio.
             </p>
           </Col>
           <Col lg={4}>
-            <p>ADDRESS</p>
+            <p className="fw-bold">ADDRESS</p>
             <p>
               Garut Institute of Technology Campus, <br /> Jl. Mayor Syamsu No.1 Garut 44151
             </p>
           </Col>
           <Col lg={3}>
-            <p>FOLLOW US</p>
+            <p className="fw-bold">FOLLOW US</p>
             <div className="d-flex gap-3">
               <FaFacebookF size="20px" />
               <FaTwitter size="20px" />

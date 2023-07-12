@@ -142,16 +142,17 @@ export default function ViewPortofolio({
 
             {achievments?.map((item, index) => (
               <div key={index} className="mb-4">
-                <div className="d-flex justify-content-between">
-                  <p>{item.name}</p>
-                  <p>{item.year}</p>
-                </div>
                 <img
                   src={item?.file && URL.createObjectURL(item?.file)}
                   alt=""
                   width="100%"
                   style={{ objectFit: "cover" }}
                 />
+
+                <div className="d-flex justify-content-between mt-3">
+                  <p>{item.name}</p>
+                  <p>{item.year}</p>
+                </div>
               </div>
             ))}
           </>
@@ -172,7 +173,7 @@ export default function ViewPortofolio({
                   style={{ objectFit: "cover" }}
                 />
 
-                <div className="d-flex justify-content-between">
+                <div className="d-flex justify-content-between mt-3">
                   <p>{item.name}</p>
                   <p>{item.year}</p>
                 </div>

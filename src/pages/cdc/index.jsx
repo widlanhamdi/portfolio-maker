@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Banner from "../../components/Banner";
-import Dashboard from "../../components/Dashboard";
-import List from "./components/List";
+import ListPortfolios from "./components/ListPortfolios";
+import VisualData from "../../components/VisualData";
 import { Col, Container, Form, Row } from "react-bootstrap";
 
-export default function ListPortfolio() {
+export default function Dashboard() {
   // Input Search Bar
   const [inputText, setInputText] = useState("");
 
@@ -16,7 +16,7 @@ export default function ListPortfolio() {
   return (
     <Container>
       <Banner content="Dashboard E-Portfolio CDC" />
-      <Dashboard />
+      <VisualData />
 
       <Row className="justify-content-center my-4">
         <Col lg={5}>
@@ -29,7 +29,7 @@ export default function ListPortfolio() {
         </Col>
       </Row>
 
-      <List input={inputText} />
+      <ListPortfolios input={inputText} />
     </Container>
   );
 }

@@ -7,7 +7,7 @@ import { deleteDoc, doc } from "firebase/firestore";
 import { RiDeleteBinLine } from "react-icons/ri";
 import useFetchAllData from "../../../hooks/query/useFetchAllData";
 
-export default function List({ input }) {
+export default function ListPortfolios({ input }) {
   const portfolios = useFetchAllData("/portfolios");
   const { data, isLoading } = portfolios;
 

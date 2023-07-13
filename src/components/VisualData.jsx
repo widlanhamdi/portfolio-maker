@@ -2,7 +2,7 @@ import React from "react";
 import Ilustration from "../assets/ilustration-dashboard.png";
 import useFetchAllData from "../hooks/query/useFetchAllData";
 
-export default function Dashboard() {
+export default function VisualData() {
   const users = useFetchAllData("/users");
 
   const portfolios = useFetchAllData("/portfolios");

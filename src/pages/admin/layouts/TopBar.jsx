@@ -28,11 +28,11 @@ export default function TopBar() {
         <Navbar.Toggle />
         <Navbar.Collapse>
           <Nav className="mx-auto gap-3">
-            <Nav.Link as={Link} to="/admin">
+            <Nav.Link as={Link} to="/admin" className="fw-semibold">
               Dashboard
             </Nav.Link>
-            <Nav.Link as={Link} to="/admin/login-students">
-              Register
+            <Nav.Link as={Link} to="/admin/login-students" className="fw-semibold">
+              Register Students
             </Nav.Link>
           </Nav>
           <Button variant="danger" onClick={logout}>

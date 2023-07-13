@@ -3,7 +3,7 @@ import PreviewPortfolio from "./PreviewPortfolio";
 import useFetchAllData from "../../../hooks/query/useFetchAllData";
 import { Button, Card, Col, Row } from "react-bootstrap";
 
-export default function List({ input }) {
+export default function ListPortfolios({ input }) {
   const portfolios = useFetchAllData("/portfolios");
   const { data, isLoading } = portfolios;
 

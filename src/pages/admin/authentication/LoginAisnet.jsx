@@ -41,8 +41,9 @@ export default function LoginAisnet() {
     <Container>
       <div className="mx-auto border bg-body rounded w-50 mt-3">
         <Form className="p-5" onSubmit={handleSignIn}>
-          <h3 style={{ color: "#094b72" }}>Login For Access Data Students</h3>
-          <Form.Group className="mt-5 mb-3">
+          <h3 style={{ color: "#094b72" }}>Login Aisnet</h3>
+          <p style={{ color: "#094b72" }}>For Access Data Students</p>
+          <Form.Group className="mt-4 mb-3">
             <Form.Label style={{ color: "#094B72" }}>Username</Form.Label>
             <Form.Control
               type="username"

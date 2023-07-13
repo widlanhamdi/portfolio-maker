@@ -38,15 +38,10 @@ export default function Login() {
         </Col>
         <Col lg={5} className="text-start">
           <Form onSubmit={handleSignIn}>
-            <div className="mb-4">
-              <Link to="/">
-                <img src={Logo} alt="logo cdc" />
-              </Link>
-              <h4 className="mt-4" style={{ color: "#094b72" }}>
-                Login
-              </h4>
-            </div>
-            <Form.Group className="mb-3">
+            <Link to="/">
+              <img src={Logo} alt="logo cdc" />
+            </Link>
+            <Form.Group className="mb-3 mt-4">
               <Form.Label style={{ color: "#094B72" }}>Email</Form.Label>
               <Form.Control
                 type="email"

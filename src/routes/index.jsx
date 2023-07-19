@@ -27,6 +27,7 @@ import Profile from "../pages/user/Profile";
 import PrivateUser from "./user/PrivateUser";
 import ProtectedUser from "./user/ProtectedUser";
 import ResetPassword from "../pages/user/authentication/ResetPassword";
+import ListAlumni from "../pages/admin/components/ListAlumni";
 
 export default function SetupRouter() {
   return (
@@ -40,6 +41,7 @@ export default function SetupRouter() {
 
         <Route path="/admin" element={<PrivateAdmin />}>
           <Route index element={<DashboardAdmin />} />
+          <Route path="register-alumni" element={<ListAlumni />} />
         </Route>
 
         {/* Aisnet */}

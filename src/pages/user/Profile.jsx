@@ -80,10 +80,8 @@ export default function Profile() {
       <Container>
         <Row>
           <Col lg={3}>
-            <p className="fw-bold stripe2">
-              <span>PROFILE</span>
-            </p>
-            <div>
+            <h5 className="fw-bold mb-4">PROFILE</h5>
+            <div className="mb-4">
               <p className="m-0">Hi, {Cookies.get("name")}</p>
               <p style={{ fontSize: "14px" }}>{Cookies.get("email")}</p>
             </div>
@@ -115,9 +113,7 @@ export default function Profile() {
             </Button>
           </Col>
           <Col lg={9}>
-            <p className="fw-bold stripe2">
-              <span>PREVIEW PORTFOLIO</span>
-            </p>
+            <h5 className="fw-bold mb-4">PREVIEW PORTFOLIO</h5>
             {data === undefined ? (
               <div className="text-center my-5">
                 <p>You haven't created a portfolio yet</p>

@@ -15,6 +15,8 @@ export default function ListStudents() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log(dataMahasiswa);
+
   const users = useFetchAllData("/users");
   const { data } = users;
 
@@ -53,8 +55,12 @@ export default function ListStudents() {
             addDoc(collection(db, "users"), {
               uid: user.uid,
               name: data?.data[i]?.nama,
+              nim: data?.data[i]?.nim,
               email: `${data?.data[i]?.nim}@itg.ac.id`,
+              program_studi: data?.data[i]?.program_studi,
+              tahun_lulusan: "-",
               role: "user",
+              tags: "student",
             });
           }
         );

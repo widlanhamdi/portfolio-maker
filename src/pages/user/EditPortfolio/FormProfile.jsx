@@ -69,7 +69,7 @@ export default function FormProfile() {
   };
 
   const addWork = () => {
-    let newWork = { name: "", year: "", company: "", location: "" };
+    let newWork = { name: "", year_starts: "", year_ends: "", company: "", location: "" };
 
     setWork([...work, newWork]);
   };
@@ -91,7 +91,7 @@ export default function FormProfile() {
   };
 
   const addEducation = () => {
-    let newEducation = { name: "", study: "", year: "" };
+    let newEducation = { name: "", study: "", year_starts: "", year_ends: "" };
 
     setEducation([...education, newEducation]);
   };
@@ -113,7 +113,7 @@ export default function FormProfile() {
   };
 
   const addOrganization = () => {
-    let newOrganization = { name: "", year: "", role: "" };
+    let newOrganization = { name: "", year_starts: "", year_ends: "", role: "" };
 
     setOrganization([...organization, newOrganization]);
   };
@@ -287,12 +287,20 @@ export default function FormProfile() {
                   />
                 </Form.Group>
 
-                <Form.Group as={Col} lg={3}>
+                <Form.Group as={Col} lg={6} className="d-flex gap-2">
                   <Form.Control
-                    type="text"
-                    name="year"
-                    placeholder="Year You Started and Left"
-                    value={item.year}
+                    type="month"
+                    name="year_starts"
+                    value={item.year_starts}
+                    onChange={(e) => onWorkChange(e, index)}
+                  />
+
+                  <div className="mt-1">-</div>
+
+                  <Form.Control
+                    type="month"
+                    name="year_ends"
+                    value={item.year_ends}
                     onChange={(e) => onWorkChange(e, index)}
                   />
                 </Form.Group>
@@ -347,12 +355,20 @@ export default function FormProfile() {
                   />
                 </Form.Group>
 
-                <Form.Group as={Col} lg={3}>
+                <Form.Group as={Col} lg={6} className="d-flex gap-2">
                   <Form.Control
-                    type="text"
-                    name="year"
-                    placeholder="Year of Graduation"
-                    value={item.year}
+                    type="month"
+                    name="year_starts"
+                    value={item.year_starts}
+                    onChange={(e) => onEducationChange(e, index)}
+                  />
+
+                  <div className="mt-1">-</div>
+
+                  <Form.Control
+                    type="month"
+                    name="year_ends"
+                    value={item.year_ends}
                     onChange={(e) => onEducationChange(e, index)}
                   />
                 </Form.Group>
@@ -395,12 +411,20 @@ export default function FormProfile() {
                   />
                 </Form.Group>
 
-                <Form.Group as={Col} lg={3}>
+                <Form.Group as={Col} lg={6} className="d-flex gap-2">
                   <Form.Control
-                    type="text"
-                    name="year"
-                    placeholder="Year"
-                    value={item.year}
+                    type="month"
+                    name="year_starts"
+                    value={item.year_starts}
+                    onChange={(e) => onOrganizationChange(e, index)}
+                  />
+
+                  <div className="mt-1">-</div>
+
+                  <Form.Control
+                    type="month"
+                    name="year_ends"
+                    value={item.year_ends}
                     onChange={(e) => onOrganizationChange(e, index)}
                   />
                 </Form.Group>
@@ -492,7 +516,7 @@ export default function FormProfile() {
 
                 <Form.Group as={Col} lg={2}>
                   <Form.Control
-                    type="text"
+                    type="month"
                     name="year"
                     placeholder="Year"
                     value={item.year}
@@ -577,7 +601,7 @@ export default function FormProfile() {
 
                 <Form.Group as={Col} lg={2}>
                   <Form.Control
-                    type="text"
+                    type="month"
                     name="year"
                     placeholder="Year"
                     value={item.year}

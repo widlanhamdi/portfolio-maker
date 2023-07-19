@@ -34,6 +34,9 @@ export default function TopBar() {
             <Nav.Link as={Link} to="/admin/login-students" className="fw-semibold">
               Register Students
             </Nav.Link>
+            <Nav.Link as={Link} to="/admin/register-alumni" className="fw-semibold">
+              Register Alumni
+            </Nav.Link>
           </Nav>
           <Button variant="danger" onClick={logout}>
             <BiLogOut /> Logout

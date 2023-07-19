@@ -3,6 +3,7 @@ import { Col, Row } from "react-bootstrap";
 import { FiMail } from "react-icons/fi";
 import { BsTelephone } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
+import moment from "moment";
 
 export default function ViewPortofolio({ data }) {
   const {
@@ -81,7 +82,11 @@ export default function ViewPortofolio({ data }) {
                   <div key={index} className="mb-4">
                     <div className="d-flex justify-content-between">
                       <p className="fw-bold">{item.name}</p>
-                      <p>{item.year}</p>
+                      <div className="d-flex gap-2">
+                        <p>{moment(item.year_starts).format("MMM YYYY")}</p>
+                        <p>-</p>
+                        <p>{moment(item.year_ends).format("MMM YYYY")}</p>
+                      </div>
                     </div>
 
                     <div className="d-flex justify-content-between">
@@ -103,7 +108,11 @@ export default function ViewPortofolio({ data }) {
                   <div key={index} className="mb-4">
                     <div className="d-flex justify-content-between">
                       <p className="fw-bold">{item.name}</p>
-                      <p>{item.year}</p>
+                      <div className="d-flex gap-2">
+                        <p>{moment(item.year_starts).format("MMM YYYY")}</p>
+                        <p>-</p>
+                        <p>{moment(item.year_ends).format("MMM YYYY")}</p>
+                      </div>
                     </div>
 
                     <div className="d-flex justify-content-between">
@@ -120,14 +129,54 @@ export default function ViewPortofolio({ data }) {
                 <hr />
 
                 {organization?.map((item, index) => (
-                  <div key={index}>
+                  <div key={index} className="mb-4">
                     <div className="d-flex justify-content-between">
                       <p className="fw-bold">{item.name}</p>
-                      <p>{item.year}</p>
+                      <div className="d-flex gap-2">
+                        <p>{moment(item.year_starts).format("MMM YYYY")}</p>
+                        <p>-</p>
+                        <p>{moment(item.year_ends).format("MMM YYYY")}</p>
+                      </div>
                     </div>
 
                     <div className="d-flex justify-content-between">
                       <p>{item.role}</p>
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
+
+            {isEmpty(achievments) ? null : (
+              <>
+                <h4>Achievments</h4>
+                <hr />
+
+                {achievments?.map((item, index) => (
+                  <div key={index} className="mb-4">
+                    <div className="d-flex justify-content-between">
+                      <p className="fw-bold">{item.name}</p>
+                      <div className="d-flex gap-2">
+                        <p>{moment(item.year).format("MMM YYYY")}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </>
+            )}
+
+            {isEmpty(projects) ? null : (
+              <>
+                <h4>Projects</h4>
+                <hr />
+
+                {projects?.map((item, index) => (
+                  <div key={index}>
+                    <div className="d-flex justify-content-between">
+                      <p className="fw-bold">{item.name}</p>
+                      <div className="d-flex gap-2">
+                        <p>{moment(item.year).format("MMM YYYY")}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -145,11 +194,6 @@ export default function ViewPortofolio({ data }) {
             {achievments?.map((item, index) => (
               <div key={index} className="mb-4">
                 <img src={item.file.url} alt="" width="100%" style={{ objectFit: "cover" }} />
-
-                <div className="d-flex justify-content-between mt-3">
-                  <p>{item.name}</p>
-                  <p>{item.year}</p>
-                </div>
               </div>
             ))}
           </>
@@ -164,11 +208,6 @@ export default function ViewPortofolio({ data }) {
             {projects?.map((item, index) => (
               <div key={index} className="mb-4">
                 <img src={item.file.url} alt="" width="100%" style={{ objectFit: "cover" }} />
-
-                <div className="d-flex justify-content-between mt-3">
-                  <p>{item.name}</p>
-                  <p>{item.year}</p>
-                </div>
               </div>
             ))}
           </>

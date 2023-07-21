@@ -6,6 +6,8 @@ import { auth, db } from "../../../config/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import Swal from "sweetalert2";
 import useFetchAllData from "../../../hooks/query/useFetchAllData";
+import Pagination from "../../../components/Pagination";
+import Post from "./Post";
 
 export default function ListAlumni() {
   const [dataAlumni, setDataAlumni] = useState([]);
@@ -74,41 +76,14 @@ export default function ListAlumni() {
     <Container>
       <Form.Group className="d-flex justify-content-center gap-3 mb-4 mt-5">
         <Form.Control className="w-50" type="file" onChange={readUploadFile} />
-        <Button className="px-5" onClick={handleRegister} disabled={isLoading}>
+        <Button className="px-5" onClick={handleRegister} disabled={isLoading || dataAlumni.length === 0}>
           {isLoading ? "Registering..." : "Register Alumni"}
         </Button>
       </Form.Group>
 
       {tagsAlumni.length !== 0 ? (
         <div className="mx-auto bg-body border rounded w-75 mb-5">
-          {/* head */}
-          <div className="d-flex justify-content-between px-4 pt-4">
-            <h4>
-              List Students | <small style={{ fontSize: 15 }}>total {tagsAlumni?.length}</small>
-            </h4>
-          </div>
-          <hr style={{ height: "5px", border: "none", background: "#000000" }} />
-
-          {/* body */}
-          <div className="px-4 pb-4">
-            {tagsAlumni?.map((item, idx) => (
-              <>
-                <div className="d-flex justify-content-between" key={idx}>
-                  <div>
-                    <p className="m-0 fw-bold">{item.name}</p>
-                    <p className="m-0 text-black-50">{item.nim}</p>
-                    <p className="m-0">
-                      {item.program_studi} | Tahun Lulus {item.tahun_lulusan}
-                    </p>
-                  </div>
-                  <div>
-                    <p className="text-black-50">(Registered)</p>
-                  </div>
-                </div>
-                <hr />
-              </>
-            ))}
-          </div>
+          <Pagination data={tagsAlumni} RenderComponent={Post} contentPerPage={10} />
         </div>
       ) : (
         ""

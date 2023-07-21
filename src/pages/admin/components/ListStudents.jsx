@@ -15,12 +15,8 @@ export default function ListStudents() {
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(dataMahasiswa);
-
   const users = useFetchAllData("/users");
   const { data } = users;
-
-  const match = (name) => data?.map((item) => item.name).filter((e) => name.indexOf(e) !== -1);
 
   useEffect(() => {
     const headers = { Authorization: `Bearer ${AuthAisnet.getAccessToken()}` };
@@ -41,6 +37,8 @@ export default function ListStudents() {
     setTahun(e.target.value);
     setPage(1);
   };
+
+  const match = (name) => data?.map((item) => item.name).filter((e) => name.indexOf(e) !== -1);
 
   const handleRegister = async (e) => {
     e.preventDefault();

@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -24,10 +25,38 @@ export default function Footer() {
           <Col lg={3}>
             <p className="fw-bold">FOLLOW US</p>
             <div className="d-flex gap-3">
-              <FaFacebookF size="20px" />
-              <FaTwitter size="20px" />
-              <FaInstagram size="20px" />
-              <FaYoutube size="20px" />
+              <Link
+                to="https://www.facebook.com/official.itg"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "black" }}
+              >
+                <FaFacebookF size="20px" />
+              </Link>
+              <Link
+                to="https://twitter.com/itg_campus/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "black" }}
+              >
+                <FaTwitter size="20px" />
+              </Link>
+              <Link
+                to="https://www.instagram.com/itg_official/"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "black" }}
+              >
+                <FaInstagram size="20px" />
+              </Link>
+              <Link
+                to="https://www.youtube.com/@InstitutTeknologiGarut"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "black" }}
+              >
+                <FaYoutube size="20px" />
+              </Link>
             </div>
           </Col>
         </Row>

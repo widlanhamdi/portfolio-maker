@@ -21,26 +21,23 @@ export default function TopBar() {
 
   return (
     <Navbar expand="lg">
-      <Container className="ps-5">
+      <Container>
         <Navbar.Brand as={Link} to="/profile">
           <img src={Logo} alt="logo" />
         </Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse>
-          <Nav className="ms-auto">
-            {AuthUser.isAuthorization() ? (
-              <Button variant="outline-primary" onClick={logout}>
-                <BiLogOut /> Logout
+        <Nav className="ms-auto">
+          {AuthUser.isAuthorization() ? (
+            <Button variant="outline-primary" onClick={logout}>
+              <BiLogOut /> Logout
+            </Button>
+          ) : (
+            <>
+              <Button as={Link} to="/login" variant="outline-primary px-5">
+                Login
               </Button>
-            ) : (
-              <>
-                <Button as={Link} to="/login" variant="outline-primary px-5">
-                  Login
-                </Button>
-              </>
-            )}
-          </Nav>
-        </Navbar.Collapse>
+            </>
+          )}
+        </Nav>
       </Container>
     </Navbar>
   );

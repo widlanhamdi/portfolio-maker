@@ -28,6 +28,8 @@ import PrivateUser from "./user/PrivateUser";
 import ProtectedUser from "./user/ProtectedUser";
 import ResetPassword from "../pages/user/authentication/ResetPassword";
 import ListAlumni from "../pages/admin/components/ListAlumni";
+import PublishPortfolio from "../components/PublishPortfolio";
+import NotFound from "../pages/NotFound";
 
 export default function SetupRouter() {
   return (
@@ -77,6 +79,11 @@ export default function SetupRouter() {
           <Route path="edit-portfolio" element={<EditPortfolio />} />
           <Route path="create-portfolio" element={<CreatePortofolio />} />
         </Route>
+
+        {/* Public */}
+
+        <Route path="/portfolio/:id" element={<PublishPortfolio />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

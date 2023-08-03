@@ -56,7 +56,7 @@ export default function Profile() {
   // copy clip to clip board
   const copyToClipboard = () => {
     try {
-      navigator.clipboard.writeText(`https://cdc-portfolio-maker.netlify.app/portofolio/${uid}`);
+      navigator.clipboard.writeText(`https://cdc-e-portfolio-maker.netlify.app/portfolio/${uid}`);
       Toast.fire({
         title: "Link Portfolio Copied",
         color: "#ffffff",
@@ -135,7 +135,7 @@ export default function Profile() {
                       <Button
                         className="py-2 w-100 text-white"
                         as={Link}
-                        to={`/portofolio/${uid}`}
+                        to={`/portfolio/${uid}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >

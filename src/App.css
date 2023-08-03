@@ -71,45 +71,14 @@
   z-index: 1;
 }
 
-.stripe {
-  display: flex;
-  flex-direction: row;
-}
-.stripe:before,
-.stripe:after {
-  content: "";
-  flex: 1 1;
-  border-bottom: 1px solid;
-  margin: auto;
-}
-.stripe:before {
-  margin-right: 10px;
-}
-.stripe:after {
-  margin-left: 10px;
-}
-
-.stripe2 {
-  display: flex;
-  flex-direction: row;
-}
-.stripe2:before {
-  content: "";
-  flex: 1 1;
-  border-bottom: 1px solid;
-  margin: auto;
-}
-
-.stripe2:after {
-  content: "";
-  flex: 3 3;
-  margin: auto;
-}
-.stripe2:before {
-  margin-right: 10px;
-}
-
 .editporto__round-pict {
   margin-top: -35px;
   z-index: 1;
+}
+
+.footer__pin {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }

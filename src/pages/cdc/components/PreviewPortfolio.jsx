@@ -47,7 +47,7 @@ export default function PreviewPortfolio({ data, setShow, show }) {
             variant="outline-primary"
             className="text-link px-5"
             as={Link}
-            to={`/portofolio/${data?.user_uid}`}
+            to={`/portfolio/${data?.user_uid}`}
             target="_blank"
             rel="noopener noreferrer"
           >

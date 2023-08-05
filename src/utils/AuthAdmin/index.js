@@ -5,9 +5,6 @@ const AuthAdmin = {
     if (Cookies.get("token") && Cookies.get("role") === "admin") return true;
     return null;
   },
-  getAccessToken() {
-    return Cookies.get("token") && Cookies.get("role") === "admin";
-  },
   signOut(navigate) {
     Cookies.remove("access_token");
     Cookies.remove("token");
@@ -15,7 +12,7 @@ const AuthAdmin = {
     Cookies.remove("role");
     Cookies.remove("name");
     Cookies.remove("email");
-    navigate("/admin/login");
+    navigate("/login");
   },
   storeAdminInfoToCookie(user, data) {
     if (!user.accessToken) return null;

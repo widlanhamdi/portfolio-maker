@@ -5,7 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 export default function PrivateAdmin() {
   if (!AuthAdmin.isAuthorization()) {
-    return <Navigate to="/admin/login" />;
+    return <Navigate to="/login" />;
   }
 
   return (

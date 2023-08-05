@@ -6,7 +6,7 @@ const AuthUser = {
     return null;
   },
   getAccessToken() {
-    return Cookies.get("token" && Cookies.get("role") === "user");
+    return Cookies.get("token");
   },
   signOut(navigate) {
     Cookies.remove("access_token");

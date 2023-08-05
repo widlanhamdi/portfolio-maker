@@ -5,9 +5,6 @@ const AuthCDC = {
     if (Cookies.get("token") && Cookies.get("role") === "cdc") return true;
     return null;
   },
-  getAccessToken() {
-    return Cookies.get("token") && Cookies.get("role") === "cdc";
-  },
   signOut(navigate) {
     Cookies.remove("access_token");
     Cookies.remove("token");
@@ -15,7 +12,7 @@ const AuthCDC = {
     Cookies.remove("role");
     Cookies.remove("name");
     Cookies.remove("email");
-    navigate("/cdc/login");
+    navigate("/login");
   },
   storeCDCInfoToCookie(user, data) {
     if (!user.accessToken) return null;

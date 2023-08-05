@@ -5,7 +5,7 @@ import { Navigate, Outlet } from "react-router-dom";
 
 export default function PrivateCDC() {
   if (!AuthCDC.isAuthorization()) {
-    return <Navigate to="/cdc/login" />;
+    return <Navigate to="/login" />;
   }
 
   return (

@@ -5,12 +5,26 @@ import Logo from "../../../assets/logo.png";
 import useSignIn from "../../../hooks/authentication/useSignIn";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import AuthAdmin from "../../../utils/AuthAdmin";
+import AuthCDC from "../../../utils/AuthCDC";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const signIn = useSignIn(email, password, "users", "/profile", AuthUser.storeUserInfoToCookie);
+  const accessModifier = () => {
+    if (email === "admin@itg.ac.id") return "/admin";
+    if (email === "ketua.cdc@itg.ac.id") return "/cdc";
+    return "/profile";
+  };
+
+  const auth = () => {
+    if (email === "admin@itg.ac.id") return AuthAdmin.storeAdminInfoToCookie;
+    if (email === "ketua.cdc@itg.ac.id") return AuthCDC.storeCDCInfoToCookie;
+    return AuthUser.storeUserInfoToCookie;
+  };
+
+  const signIn = useSignIn(email, password, "users", accessModifier(), auth());
   const { isLoading } = signIn;
 
   const handleSignIn = async (e) => {

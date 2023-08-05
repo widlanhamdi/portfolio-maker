@@ -2,9 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 // admin
 import DashboardAdmin from "../pages/admin";
-import LoginAdmin from "../pages/admin/authentication/LoginAdmin";
 import PrivateAdmin from "./admin/PrivateAdmin";
-import ProtectedAdmin from "./admin/ProtectedAdmin";
 
 // Aisnet
 import ListStudents from "../pages/admin/components/ListStudents";
@@ -14,9 +12,7 @@ import ProtectedAisnet from "./aisnet/ProtectedAisnet";
 
 // cdc
 import DashboardCDC from "../pages/cdc";
-import LoginCDC from "../pages/cdc/authentication/LoginCDC";
 import PrivateCDC from "./cdc/PrivateCDC";
-import ProtectedCDC from "./cdc/ProtectedCDC";
 
 // user
 import CreatePortofolio from "../pages/user/CreatePortfolio";
@@ -37,10 +33,6 @@ export default function SetupRouter() {
       <Routes>
         {/* Admin */}
 
-        <Route path="/admin" element={<ProtectedAdmin />}>
-          <Route path="login" element={<LoginAdmin />} />
-        </Route>
-
         <Route path="/admin" element={<PrivateAdmin />}>
           <Route index element={<DashboardAdmin />} />
           <Route path="register-alumni" element={<ListAlumni />} />
@@ -57,10 +49,6 @@ export default function SetupRouter() {
         </Route>
 
         {/* CDC */}
-
-        <Route path="/cdc" element={<ProtectedCDC />}>
-          <Route path="login" element={<LoginCDC />} />
-        </Route>
 
         <Route path="/cdc" element={<PrivateCDC />}>
           <Route index element={<DashboardCDC />} />

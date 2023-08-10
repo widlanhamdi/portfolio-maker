@@ -18,14 +18,15 @@ import PrivateCDC from "./cdc/PrivateCDC";
 import CreatePortofolio from "../pages/user/CreatePortfolio";
 import EditPortfolio from "../pages/user/EditPortfolio";
 import LandingPage from "../pages/user/LandingPage";
+import ListAlumni from "../pages/admin/components/ListAlumni";
+import ListPortfolio from "../pages/user/ListPortfolio";
 import Login from "../pages/user/authentication/Login";
+import NotFound from "../pages/NotFound";
 import Profile from "../pages/user/Profile";
 import PrivateUser from "./user/PrivateUser";
 import ProtectedUser from "./user/ProtectedUser";
-import ResetPassword from "../pages/user/authentication/ResetPassword";
-import ListAlumni from "../pages/admin/components/ListAlumni";
 import PublishPortfolio from "../components/PublishPortfolio";
-import NotFound from "../pages/NotFound";
+import ResetPassword from "../pages/user/authentication/ResetPassword";
 
 export default function SetupRouter() {
   return (
@@ -58,6 +59,7 @@ export default function SetupRouter() {
 
         <Route path="/" element={<ProtectedUser />}>
           <Route index element={<LandingPage />} />
+          <Route path="list-portfolio" element={<ListPortfolio />} />
           <Route path="login" element={<Login />} />
           <Route path="reset-password" element={<ResetPassword />} />
         </Route>

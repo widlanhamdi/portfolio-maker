@@ -7,6 +7,7 @@ import { BsCheck2All } from "react-icons/bs";
 import { doc, setDoc, Timestamp } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
 export default function PreviewPortofolio({
   show,
@@ -27,6 +28,7 @@ export default function PreviewPortofolio({
 }) {
   // Current User
   const user = auth.currentUser;
+  const major = Cookies.get("program_studi");
 
   // isEmpty
   const isEmpty = (value) => value.every((item) => Object.values(item).every((x) => x === null || x === ""));
@@ -104,6 +106,7 @@ export default function PreviewPortofolio({
         photo: photoURL,
         name,
         skill,
+        major: major,
         about_me: aboutMe,
         email,
         phone,

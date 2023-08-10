@@ -1,7 +1,7 @@
 import React from "react";
+import FindPortfolio from "./FindPortfolio";
 import Footer from "./Footer";
 import Hero from "./Hero";
-import StudentPortofolio from "./StudentPortofolio";
 import TopBar from "../layouts/TopBar";
 
 export default function LandingPage() {
@@ -9,7 +9,7 @@ export default function LandingPage() {
     <div>
       <TopBar />
       <Hero />
-      <StudentPortofolio />
+      <FindPortfolio />
       <Footer />
     </div>
   );

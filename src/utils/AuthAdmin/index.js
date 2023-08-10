@@ -12,6 +12,7 @@ const AuthAdmin = {
     Cookies.remove("role");
     Cookies.remove("name");
     Cookies.remove("email");
+    Cookies.remove("program_studi");
     navigate("/login");
   },
   storeAdminInfoToCookie(user, data) {
@@ -22,6 +23,7 @@ const AuthAdmin = {
     Cookies.remove("role");
     Cookies.remove("name");
     Cookies.remove("email");
+    Cookies.remove("program_studi");
     const { accessToken } = user;
     const { role } = data;
     Cookies.set("token", accessToken, { expires: 1 });

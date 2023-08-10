@@ -22,7 +22,7 @@ export default function TopBar() {
   return (
     <Navbar expand="lg">
       <Container className="px-5">
-        <Navbar.Brand as={Link} to="/cdc/list-portfolio">
+        <Navbar.Brand as={Link} to="/">
           <img src={Logo} alt="logo" />
         </Navbar.Brand>
         <Navbar.Toggle />

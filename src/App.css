@@ -82,3 +82,8 @@
   bottom: 0;
   right: 0;
 }
+
+.link-hover:hover {
+  color: #094b72 !important;
+  text-decoration: underline !important;
+}

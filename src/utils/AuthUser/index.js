@@ -15,6 +15,7 @@ const AuthUser = {
     Cookies.remove("role");
     Cookies.remove("name");
     Cookies.remove("email");
+    Cookies.remove("program_studi");
     navigate("/login");
   },
   storeUserInfoToCookie(user, data) {
@@ -25,13 +26,15 @@ const AuthUser = {
     Cookies.remove("role");
     Cookies.remove("name");
     Cookies.remove("email");
+    Cookies.remove("program_studi");
     const { accessToken } = user;
-    const { uid, role, name, email } = data;
+    const { uid, role, name, email, program_studi } = data;
     Cookies.set("token", accessToken, { expires: 1 });
     Cookies.set("uid", uid, { expires: 1 });
     Cookies.set("role", role, { expires: 1 });
     Cookies.set("name", name, { expires: 1 });
     Cookies.set("email", email, { expires: 1 });
+    Cookies.set("program_studi", program_studi, { expires: 1 });
     return user && data;
   },
 };

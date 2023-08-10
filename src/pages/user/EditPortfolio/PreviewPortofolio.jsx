@@ -6,6 +6,7 @@ import { Button, Modal } from "react-bootstrap";
 import { BsCheck2All } from "react-icons/bs";
 import { doc, Timestamp, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import Cookies from "js-cookie";
 
 export default function PreviewPortofolio({
   show,
@@ -26,6 +27,7 @@ export default function PreviewPortofolio({
 }) {
   // Utils
   const user = auth.currentUser;
+  const major = Cookies.get("program_studi");
   const isFile = (input) => "File" in window && input instanceof File;
   const [isLoading, setIsLoading] = useState(false);
 
@@ -140,6 +142,7 @@ export default function PreviewPortofolio({
         photo: photoURL ? photoURL : photo,
         name,
         skill,
+        major: major,
         about_me: aboutMe,
         email,
         phone,

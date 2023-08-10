@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
-import useFetchAllData from "../../../../hooks/query/useFetchAllData";
 import PreviewPublic from "./PreviewPublic";
+import useFetchAllData from "../../../hooks/query/useFetchAllData";
+import { Button, Card, Col, Container, Form, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function FindPortfolio() {
@@ -35,8 +35,6 @@ export default function FindPortfolio() {
   return (
     <div id="student-portofolio" className="mb-5">
       <Container className="px-5">
-        <h2>Find the e-portfolio you need</h2>
-
         {/* Search Bar */}
         <Row className="justify-content-center my-3">
           <Col lg={5}>
@@ -74,8 +72,11 @@ export default function FindPortfolio() {
                       style={{ border: "solid 3px #ffffff" }}
                     />
                   </div>
+
                   <div>
-                    <Card.Title style={{ fontSize: "14px" }}>{data?.name}</Card.Title>
+                    <Card.Title style={{ fontSize: "14px" }} className="fw-bold">
+                      {data?.name}
+                    </Card.Title>
                     <Card.Text style={{ fontSize: "12px" }} className="m-0">
                       <span className="fw-semibold">Skills:</span> {data?.skill}.
                     </Card.Text>

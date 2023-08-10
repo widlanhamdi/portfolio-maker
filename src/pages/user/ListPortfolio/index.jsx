@@ -1,6 +1,6 @@
 import React from "react";
 import Banner from "../../../components/Banner";
-import FindPortfolio from "./FindPortfolio";
+import FindPortfolio from "../FindPortfolio";
 import Footer from "./Footer";
 import TopBar from "./TopBar";
 import { Container } from "react-bootstrap";

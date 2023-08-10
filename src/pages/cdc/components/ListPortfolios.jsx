@@ -53,9 +53,14 @@ export default function ListPortfolios({ input }) {
                   />
                 </div>
                 <div>
-                  <Card.Title className="m-0">{data?.name}</Card.Title>
-                  <Card.Text className="m-0" style={{ fontSize: "14px" }}>
-                    {data?.skill}
+                  <Card.Title style={{ fontSize: "14px" }} className="fw-bold">
+                    {data?.name}
+                  </Card.Title>
+                  <Card.Text style={{ fontSize: "12px" }} className="m-0">
+                    <span className="fw-semibold">Skills:</span> {data?.skill}.
+                  </Card.Text>
+                  <Card.Text style={{ fontSize: "12px" }} className="m-0">
+                    {data?.major}
                   </Card.Text>
                 </div>
               </Card.Body>

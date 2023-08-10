@@ -11,6 +11,7 @@ export default function ViewPortofolio({ data }) {
     photo,
     name,
     skill,
+    major,
     about_me,
     email,
     phone,
@@ -42,8 +43,11 @@ export default function ViewPortofolio({ data }) {
           />
         </div>
         <div className="mt-3 ms-3">
-          <h4>{name}</h4>
-          <p>{skill}</p>
+          <h4 className="fw-bold">{name}</h4>
+          <p className="m-0">
+            <span className="fw-semibold">Skills:</span> {skill}
+          </p>
+          <p className="m-0">{major}</p>
         </div>
       </div>
 

@@ -43,7 +43,7 @@ export default function ViewPublic({ data }) {
           />
         </div>
         <div className="mt-3 ms-3">
-          <h4>{name}</h4>
+          <h4 className="fw-bold">{name}</h4>
           <p className="m-0">
             <span className="fw-semibold">Skills:</span> {skill}
           </p>

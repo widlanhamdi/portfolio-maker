@@ -632,9 +632,16 @@ export default function FormProfile() {
         </Form>
 
         <div className="px-5">
-          <Button className="w-100" onClick={() => setShow(true)} disabled={btnDisabled}>
+          <Button className="w-100 mb-1" onClick={() => setShow(true)} disabled={btnDisabled}>
             Preview Portfolio
           </Button>
+          {btnDisabled ? (
+            <p style={{ fontSize: "14px" }}>
+              Please fill out the form marked <span className="text-danger">*</span>
+            </p>
+          ) : (
+            ""
+          )}
         </div>
       </Container>
       <PreviewPortofolio

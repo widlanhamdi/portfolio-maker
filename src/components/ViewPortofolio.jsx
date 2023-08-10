@@ -4,6 +4,7 @@ import { FiMail } from "react-icons/fi";
 import { BsTelephone } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import moment from "moment";
+import Watermark from "../assets/watermark.png";
 
 export default function ViewPortofolio({ data }) {
   const {
@@ -52,142 +53,146 @@ export default function ViewPortofolio({ data }) {
       </div>
 
       <div className="mt-5 px-5 pb-2">
-        <Row>
-          <Col lg={4}>
-            <div className="mb-5">
-              <h4>About Me</h4>
-              <hr />
-              <p>{about_me}</p>
-            </div>
-            <div>
-              <h4>Social</h4>
-              <hr />
-              <p>
-                <FiMail className="me-2" />
-                {email}
-              </p>
-              <p>
-                <BsTelephone className="me-2" />
-                {phone}
-              </p>
-              <p>
-                <FaInstagram className="me-2" />
-                {socmed}
-              </p>
-            </div>
-          </Col>
-          <Col lg={8}>
-            {isEmpty(work) ? null : (
-              <>
-                <h4>Work Experience</h4>
-                <hr />
+        <div style={{ position: "relative" }}>
+          <img src={Watermark} alt="Institut Teknologi Garut" className="watermark" />
 
-                {work?.map((item, index) => (
-                  <div key={index} className="mb-4">
-                    <div className="d-flex justify-content-between">
-                      <p className="fw-bold">{item.name}</p>
-                      <div className="d-flex gap-2">
-                        <p>{moment(item.year_starts).format("MMM YYYY")}</p>
-                        <p>-</p>
-                        <p>{moment(item.year_ends).format("MMM YYYY")}</p>
+          <Row>
+            <Col lg={4}>
+              <div className="mb-5">
+                <h4>About Me</h4>
+                <hr />
+                <p>{about_me}</p>
+              </div>
+              <div>
+                <h4>Social</h4>
+                <hr />
+                <p>
+                  <FiMail className="me-2" />
+                  {email}
+                </p>
+                <p>
+                  <BsTelephone className="me-2" />
+                  {phone}
+                </p>
+                <p>
+                  <FaInstagram className="me-2" />
+                  {socmed}
+                </p>
+              </div>
+            </Col>
+            <Col lg={8}>
+              {isEmpty(work) ? null : (
+                <>
+                  <h4>Work Experience</h4>
+                  <hr />
+
+                  {work?.map((item, index) => (
+                    <div key={index} className="mb-4">
+                      <div className="d-flex justify-content-between">
+                        <p className="fw-bold">{item.name}</p>
+                        <div className="d-flex gap-2">
+                          <p>{moment(item.year_starts).format("MMM YYYY")}</p>
+                          <p>-</p>
+                          <p>{moment(item.year_ends).format("MMM YYYY")}</p>
+                        </div>
+                      </div>
+
+                      <div className="d-flex justify-content-between">
+                        <p>
+                          {item.company} | {item.location}
+                        </p>
                       </div>
                     </div>
+                  ))}
+                </>
+              )}
 
-                    <div className="d-flex justify-content-between">
-                      <p>
-                        {item.company} | {item.location}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </>
-            )}
+              {isEmpty(education) ? null : (
+                <>
+                  <h4>Education</h4>
+                  <hr />
 
-            {isEmpty(education) ? null : (
-              <>
-                <h4>Education</h4>
-                <hr />
+                  {education?.map((item, index) => (
+                    <div key={index} className="mb-4">
+                      <div className="d-flex justify-content-between">
+                        <p className="fw-bold">{item.name}</p>
+                        <div className="d-flex gap-2">
+                          <p>{moment(item.year_starts).format("MMM YYYY")}</p>
+                          <p>-</p>
+                          <p>{moment(item.year_ends).format("MMM YYYY")}</p>
+                        </div>
+                      </div>
 
-                {education?.map((item, index) => (
-                  <div key={index} className="mb-4">
-                    <div className="d-flex justify-content-between">
-                      <p className="fw-bold">{item.name}</p>
-                      <div className="d-flex gap-2">
-                        <p>{moment(item.year_starts).format("MMM YYYY")}</p>
-                        <p>-</p>
-                        <p>{moment(item.year_ends).format("MMM YYYY")}</p>
+                      <div className="d-flex justify-content-between">
+                        <p>{item.study}</p>
                       </div>
                     </div>
+                  ))}
+                </>
+              )}
 
-                    <div className="d-flex justify-content-between">
-                      <p>{item.study}</p>
-                    </div>
-                  </div>
-                ))}
-              </>
-            )}
+              {isEmpty(organization) ? null : (
+                <>
+                  <h4>Organization</h4>
+                  <hr />
 
-            {isEmpty(organization) ? null : (
-              <>
-                <h4>Organization</h4>
-                <hr />
+                  {organization?.map((item, index) => (
+                    <div key={index} className="mb-4">
+                      <div className="d-flex justify-content-between">
+                        <p className="fw-bold">{item.name}</p>
+                        <div className="d-flex gap-2">
+                          <p>{moment(item.year_starts).format("MMM YYYY")}</p>
+                          <p>-</p>
+                          <p>{moment(item.year_ends).format("MMM YYYY")}</p>
+                        </div>
+                      </div>
 
-                {organization?.map((item, index) => (
-                  <div key={index} className="mb-4">
-                    <div className="d-flex justify-content-between">
-                      <p className="fw-bold">{item.name}</p>
-                      <div className="d-flex gap-2">
-                        <p>{moment(item.year_starts).format("MMM YYYY")}</p>
-                        <p>-</p>
-                        <p>{moment(item.year_ends).format("MMM YYYY")}</p>
+                      <div className="d-flex justify-content-between">
+                        <p>{item.role}</p>
                       </div>
                     </div>
+                  ))}
+                </>
+              )}
 
-                    <div className="d-flex justify-content-between">
-                      <p>{item.role}</p>
-                    </div>
-                  </div>
-                ))}
-              </>
-            )}
+              {isEmpty(achievments) ? null : (
+                <>
+                  <h4>Achievments</h4>
+                  <hr />
 
-            {isEmpty(achievments) ? null : (
-              <>
-                <h4>Achievments</h4>
-                <hr />
-
-                {achievments?.map((item, index) => (
-                  <div key={index} className="mb-4">
-                    <div className="d-flex justify-content-between">
-                      <p className="fw-bold">{item.name}</p>
-                      <div className="d-flex gap-2">
-                        <p>{moment(item.year).format("MMM YYYY")}</p>
+                  {achievments?.map((item, index) => (
+                    <div key={index} className="mb-4">
+                      <div className="d-flex justify-content-between">
+                        <p className="fw-bold">{item.name}</p>
+                        <div className="d-flex gap-2">
+                          <p>{moment(item.year).format("MMM YYYY")}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </>
-            )}
+                  ))}
+                </>
+              )}
 
-            {isEmpty(projects) ? null : (
-              <>
-                <h4>Projects</h4>
-                <hr />
+              {isEmpty(projects) ? null : (
+                <>
+                  <h4>Projects</h4>
+                  <hr />
 
-                {projects?.map((item, index) => (
-                  <div key={index}>
-                    <div className="d-flex justify-content-between">
-                      <p className="fw-bold">{item.name}</p>
-                      <div className="d-flex gap-2">
-                        <p>{moment(item.year).format("MMM YYYY")}</p>
+                  {projects?.map((item, index) => (
+                    <div key={index}>
+                      <div className="d-flex justify-content-between">
+                        <p className="fw-bold">{item.name}</p>
+                        <div className="d-flex gap-2">
+                          <p>{moment(item.year).format("MMM YYYY")}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </>
-            )}
-          </Col>
-        </Row>
+                  ))}
+                </>
+              )}
+            </Col>
+          </Row>
+        </div>
 
         {isEmpty(achievments) ? null : (
           <>

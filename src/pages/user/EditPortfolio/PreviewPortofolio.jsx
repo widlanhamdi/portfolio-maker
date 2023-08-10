@@ -187,7 +187,7 @@ export default function PreviewPortofolio({
       <Modal.Header closeButton>
         <Modal.Title>Preview Portofolio</Modal.Title>
       </Modal.Header>
-      <Modal.Body>
+      <Modal.Body style={{ zIndex: "0" }}>
         <ViewPortofolio
           bg={bg}
           photo={photo}

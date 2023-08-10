@@ -25,7 +25,7 @@ import NotFound from "../pages/NotFound";
 import Profile from "../pages/user/Profile";
 import PrivateUser from "./user/PrivateUser";
 import ProtectedUser from "./user/ProtectedUser";
-import PublishPortfolio from "../components/PublishPortfolio";
+import PublishPortfolio from "../pages/PublishPortfolio";
 import ResetPassword from "../pages/user/authentication/ResetPassword";
 
 export default function SetupRouter() {

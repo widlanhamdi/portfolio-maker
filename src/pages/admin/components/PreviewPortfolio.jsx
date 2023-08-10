@@ -38,7 +38,7 @@ export default function PreviewPortfolio({ data, setShow, show }) {
       <Modal.Header closeButton>
         <Modal.Title>Preview Portofolio</Modal.Title>
       </Modal.Header>
-      <Modal.Body id="pdf">
+      <Modal.Body id="pdf" style={{ zIndex: "0" }}>
         <ViewPortofolio data={data} />
       </Modal.Body>
       <Modal.Footer>

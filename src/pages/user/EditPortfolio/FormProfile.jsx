@@ -623,10 +623,17 @@ export default function FormProfile() {
           </Button>
         </Form>
 
-        <div className="text-center px-5">
-          <Button className="w-100 mb-4" onClick={() => setShow(true)} disabled={btnDisabled}>
+        <div className="px-5">
+          <Button className="w-100" onClick={() => setShow(true)} disabled={btnDisabled}>
             Preview Portofolio
           </Button>
+          {btnDisabled ? (
+            <p style={{ fontSize: "14px" }} className="mb-4">
+              Please fill out the form marked <span className="text-danger">*</span>
+            </p>
+          ) : (
+            <div className="mb-4" />
+          )}
           <Button variant="outline-primary" className="w-100" as={Link} to={"/profile"}>
             Back to Profile
           </Button>

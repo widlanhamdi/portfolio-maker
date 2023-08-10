@@ -22,7 +22,7 @@ export default function TopBar() {
   return (
     <Navbar expand="lg">
       <Container>
-        <Navbar.Brand as={Link} to="/profile">
+        <Navbar.Brand as={Link} to="/">
           <img src={Logo} alt="logo" />
         </Navbar.Brand>
         <Nav className="ms-auto">

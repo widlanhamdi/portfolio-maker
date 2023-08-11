@@ -20,6 +20,10 @@
   --bs-btn-disabled-border-color: #094b72 !important;
 }
 
+.text-primary-color {
+  color: #094b72 !important;
+}
+
 .bg > [type="radio"] {
   position: absolute;
   opacity: 0;

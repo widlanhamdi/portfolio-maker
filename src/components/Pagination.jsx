@@ -5,8 +5,6 @@ const Pagination = ({ data, RenderComponent, contentPerPage }) => {
   const [totalPageCount] = useState(Math.ceil(data.length / contentPerPage));
   const [currentPage, setCurrentPage] = useState(1);
 
-  console.log(totalPageCount);
-
   function goToNextPage() {
     setCurrentPage((page) => page + 1);
   }

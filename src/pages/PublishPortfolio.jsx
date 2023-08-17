@@ -4,9 +4,9 @@ import { Col, Container, Row } from "react-bootstrap";
 import { FaInstagram } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 import { useParams } from "react-router-dom";
-import useFetchDataById from "../hooks/query/useFetchDataById";
+import Logo from "../assets/cdc.png";
 import moment from "moment";
-import Watermark from "../assets/watermark.png";
+import useFetchDataById from "../hooks/query/useFetchDataById";
 
 export default function PublishPortfolio() {
   const { id } = useParams();
@@ -61,9 +61,7 @@ export default function PublishPortfolio() {
           </div>
 
           <div className="mt-5 px-5 pb-2">
-            <div style={{ position: "relative" }}>
-              <img src={Watermark} alt="Institut Teknologi Garut" className="watermark" />
-
+            <div>
               <Row>
                 <Col lg={4}>
                   <div className="mb-5">
@@ -229,6 +227,11 @@ export default function PublishPortfolio() {
                 ))}
               </>
             )}
+            <div className="text-center my-4">
+              <p>
+                Powered by <img src={Logo} alt="CDC Institut Teknologi Garut" width="100px" />
+              </p>
+            </div>
           </div>
         </div>
       )}

@@ -3,8 +3,8 @@ import { Col, Row } from "react-bootstrap";
 import { FiMail } from "react-icons/fi";
 import { BsTelephone } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
+import Logo from "../../../assets/cdc.png";
 import moment from "moment";
-import Watermark from "../../../assets/watermark.png";
 
 export default function ViewPortofolio({
   bg,
@@ -48,9 +48,7 @@ export default function ViewPortofolio({
       </div>
 
       <div className="mt-5 px-5">
-        <div style={{ position: "relative" }}>
-          <img src={Watermark} alt="Institut Teknologi Garut" className="watermark" />
-
+        <div>
           <Row>
             <Col lg={4}>
               <div className="mb-5">
@@ -226,6 +224,11 @@ export default function ViewPortofolio({
             ))}
           </>
         )}
+        <div className="text-center my-4">
+          <p>
+            Powered by <img src={Logo} alt="CDC Institut Teknologi Garut" width="100px" />
+          </p>
+        </div>
       </div>
     </div>
   );

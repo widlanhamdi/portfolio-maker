@@ -86,6 +86,13 @@ export default function Login() {
             <Button variant="primary w-100 p-3 text-white mb-3" type="submit" disabled={isLoading}>
               {isLoading ? "Loading..." : "Login"}
             </Button>
+
+            <p className="text-black-50">
+              Back to{" "}
+              <Link to="/" className="text-black">
+                Homepage
+              </Link>
+            </p>
           </Form>
         </Col>
       </Row>
